@@ -3,6 +3,8 @@ document.getElementById('recipeForm').addEventListener('submit', async function(
     
     const resultDiv = document.getElementById('recipeResult');
     const ingredients = document.getElementById('ingredients').value.trim();
+    const cuisine = document.getElementById('cuisine').value.trim();
+    const mainIngredient = document.getElementById('mainIngredient').value.trim();
     
     // Input validation
     if (!ingredients) {
@@ -19,7 +21,11 @@ document.getElementById('recipeForm').addEventListener('submit', async function(
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ ingredients })
+            body: JSON.stringify({ 
+                ingredients,
+                cuisine,
+                mainIngredient 
+            })
         });
         
         if (!response.ok) {
@@ -32,6 +38,10 @@ document.getElementById('recipeForm').addEventListener('submit', async function(
         resultDiv.innerHTML = `
             <div class="recipe-container">
                 <h3>Generated Recipe</h3>
+                <div class="recipe-details">
+                    <p><strong>Cuisine:</strong> ${cuisine || 'Not specified'}</p>
+                    <p><strong>Main Ingredient:</strong> ${mainIngredient || 'Not specified'}</p>
+                </div>
                 <div class="recipe-content">
                     ${data.recipe.replace(/\n/g, '<br>')}
                 </div>

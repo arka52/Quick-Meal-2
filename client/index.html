@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Generator</title>
+    <title>Quick Meal</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <div class="logo"><img src="Image/Untitled.png" alt=""></div>
+    <div class="hading">
+        <h1><span>🍳 Quick Meal</span> – <br>Cook Fast, Learn More <br> <span>  Master Every Bite! 🍽️</span></h1>
+    </div>
     <div class="container">
-        <h1>Recipe Generator</h1>
         <form id="recipeForm">
-            <label for="ingredients">Enter Ingredients (comma-separated):</label>
-            <input type="text" id="ingredients" name="ingredients" required>
+            <div class="form-group">
+                <label for="cuisine">Cuisine Type:</label>
+                <input type="text" id="cuisine" placeholder="Enter cuisine (e.g., Italian, Indian, Mexican)">
+            </div>
+            
+            <div class="form-group">
+                <label for="mainIngredient">Main Ingredient:</label>
+                <input type="text" id="mainIngredient" placeholder="Enter main ingredient (e.g., Chicken, Rice, Pasta)">
+            </div>
+            
+            <div class="form-group">
+                <label for="ingredients">Additional Ingredients:</label>
+                <input type="text" id="ingredients" placeholder="Enter your available ingredients">
+            
             <button type="submit">Generate Recipe</button>
         </form>
         <div id="recipeResult"></div>
     </div>
+    <div class="btn-order">
+        <button id="order"><a href="https://www.bigbasket.com/">Order Ingredients 🛒</a></button>
+    </div>
     <script src="script.js"></script>
 </body>
+
 </html>
